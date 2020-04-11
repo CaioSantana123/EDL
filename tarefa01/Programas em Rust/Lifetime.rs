@@ -15,7 +15,7 @@ fn main(){
 
 fn verifica_idade<'a>(v: &'a Vec<Pessoa>) -> &'a Pessoa{ 
 	let mut maior_Pessoa: &Pessoa = v.first().unwrap();
-	let mut maior_idade = maior_pessoa.idade;
+	let mut maior_idade = maior_Pessoa.idade;
 	for p in v{
 		if p.idade > maior_idade{
 			maior_idade = p.idade;
