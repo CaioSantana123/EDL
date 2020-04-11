@@ -105,6 +105,79 @@
 
 	let mut v:i32;//um exemplo de variável mutável
 
+-C++ vs Rust(Lifetime)
+	
+	#include<vector>
+#include<iostream>
+using namespace std;
+
+	struct Pessoa{
+		int idade;
+		string nome;
+	};
+	Pessoa* verifica_idade(vector<Pessoa> *v);
+
+	int main(){
+		vector<Pessoa> v;
+		Pessoa p;
+		p.idade = 39;
+		p.nome = "Fernando";
+		v.push_back(p);
+		p.idade = 45;
+		p.nome = "Bianca";
+		v.push_back(p);
+		p.idade = 48;
+		p.nome = "Joao";
+		v.push_back(p);
+		Pessoa *e = verifica_idade(&v);
+		cout << (*e).idade << endl;
+		return 0;
+	}
+	
+	Pessoa* verifica_idade(vector<Pessoa> *v){
+		Pessoa *maior_pessoa = &(v->front());
+		int maior_idade = (*maior_pessoa).idade;
+		vector<Pessoa>::iterator it;
+		for(it = v->begin();it != v->end();it++){
+			if((*it).idade > maior_idade){
+				*maior_pessoa = (*it);
+				maior_idade = (*it).idade;
+			}
+		}
+		return maior_pessoa;
+	}
+
+-C++
+
+	struct Pessoa{
+		nome: String,
+		idade: u16,
+	}
+
+	fn main(){
+		let  mut v : Vec<Pessoa> = Vec::new();
+		v.push(Pessoa{nome : "Fernando".to_string(),idade : 39,});
+		v.push(Pessoa{nome : "Bianca".to_string(),idade : 45,});
+		v.push(Pessoa{nome : "Joao".to_string(),idade : 48,});
+		let maior = verifica_idade(&v);
+		println!("{}",maior.idade);
+	}
+
+	fn verifica_idade<'a>(v: &'a Vec<Pessoa>) -> &'a Pessoa{ 
+		let mut maior_Pessoa: &Pessoa = v.first().unwrap();
+		let mut maior_idade = 0;
+		for p in v{
+			if p.idade > maior_idade{
+				maior_idade = p.idade;
+				maior_Pessoa = p;
+									}
+				   }
+		return maior_Pessoa;
+	}
+-Rust
+
+Uma das principais diferenças entre os dois códigos é o fato de que em C++ é possível retornar uma referência que está dentro de uma função(o código compilará porém o apontador retornado estaria apontando para um espaço de memória que já foi liberado),mas graças a anotação
+
 <h3>-Referência bibliográfica</h3>
 <p>https://www.ibm.com/developerworks/br/library/os-developers-know-rust/index.html<br>
 https://pt.wikipedia.org/wiki/Rust_(linguagem_de_programa%C3%A7%C3%A3o)</p>
