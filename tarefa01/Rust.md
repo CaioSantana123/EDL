@@ -4,7 +4,7 @@
 <h3>2- Origens e Influências</h3><p>Rust foi influenciado por Cyclone(uma linguagem imperativa derivada de C), com alguns recursos de orientação a objetos de C++ e recursos funcionais de linguagens como Haskell e OCaml. O resultado final é uma linguagem semelhante a C com suporte a programação multiparadigma(imperativa, funcional e orientada a objeto).</p><br>
 
 
-![](Tineline.png)
+![](GenealogiaRust.png)
 
 
 <h3>3-Classificação</h3><p>Rust é uma linguagem orientada a objetos, estruturada, imperativa, concorrente e funcional com tipagem estática, forte e inferida.</p>
