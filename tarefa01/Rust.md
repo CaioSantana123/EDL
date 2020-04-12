@@ -176,7 +176,7 @@
 	}
 -Rust
 
-Uma das principais diferenças entre os dois códigos é o fato de que quando se trata de operações usando apontadores em C++ elas são bastante perigosas e complexas quando comparadas às em Rust,visto que é possível retornar uma referência a um espaço de memória que está no escopo da função,em Rust um código assim não compilaria,graças ao conceito de lifetime em Rust,tornando operações que usam apontadores muito mais seguras.
+Uma das principais diferenças entre os dois códigos é o fato de que quando se trata de operações usando apontadores em C++ elas são bastante perigosas e complexas quando comparadas às em Rust,visto que é possível retornar uma referência a um espaço de memória que está no escopo da função,em Rust um código assim não compilaria,graças ao conceito de lifetime,tornando operações que usam apontadores muito mais seguras.
 
 <h3>-Referência bibliográfica</h3>
 <p>https://www.ibm.com/developerworks/br/library/os-developers-know-rust/index.html<br>
