@@ -178,6 +178,26 @@
 
 Uma das principais diferenças entre os dois códigos é o fato de que quando se trata de operações usando apontadores em C++ elas são bastante perigosas e complexas quando comparadas às em Rust,visto que é possível retornar uma referência a um espaço de memória que está no escopo da função,em Rust um código assim não compilaria,graças ao conceito de lifetime,tornando operações que usam apontadores muito mais seguras.
 
+<h2>Macros - Rust</h2>
+
+- O que é Macro em Rust?
+	Macro é uma especialidade do Rust que lhe oferece uma forma de criar o seu próprio código ou sintaxe, conhecida como metaprogramação. O uso de macros como println! ou print!, que lhe permite imprimir textos na saída do programa, e vec!, que permite o programador inicializar um vetor, são alguns exemplos dessa funcionalidade. A metaprogramação é útil para reduzir o tamanho do código que o programador escreve, papel semelhante às funções, contudo a metaprogramação com as macros em Rust tem suas especialidades.
+	Uma assinatura de função deve declarar o número e o tipo de parâmetros que a função tem, macros, por outro lado, pode aceitar um número variável de parâmetros. Entretanto, o lado negativo de usar macro ao invés de função é que as macros são mais complexas do que declarar funções, porque o programador "está escrevendo Rust que sobrescreve código de Rust". Portanto, macros, em sua grande maioria, são mais difíceis de entender e ler seus códigos.
+-As influências e origem da Macro
+	As implementações mais amplamente utilizadas de macros sintáticas são encontradas em linguagens semelhantes a LISP. Linguagens como C e Assembly usam macros simples, implementados como pré-processadores no compilador ou montador. Em C, por exemplo, as macros funcionam pela simples busca e substituição de texto no código fonte.
+	Em dialetos da linguagem LISP(List Processing, ou processamento de lista, em inglês), como Common Lisp e Scheme, são um pouco mais elaborados e complexos. As macros nesses dialetos agem como funções que transformam o texto do programa, usando a própria linguagem para expressar estas transformações.
+
+
+<h2>-Lifetime</h2>
+
+Rust é uma linguagem que se propõe a ter foco em segurança em relação à memória e a ser veloz,ela consegue isto através do sistema de ownership,cujo engloba lifetime, e que garante que não haverá mais de uma referência apontando para o mesmo local na memória e que assim que uma variável deixar de ser usada ao decorrer do programa a memória consumida por ela será liberada automaticamente.À primeira vista o conceito de lifetime em rust pode parecer bastante com o de garbage collector.
+
+<h4>-Garbage Collector</h4>
+
+Garbage Collector surgiu em 1959 e começou a ser implementada em Lisp com o propósito de aumentar a produtividade dos desenvolvedores,visto que eles não necessitariam gerenciar memória manualmente,apesar de este conceito se assemelhar com o de lifetime eles diferem em alguns pontos.Primeiramente pelo fato de que o compilador em rust ser quem analisa o código,portanto não interfere na velocidade da execução do código diferentemente do garbage collector que decide se deve desalocar memória ou não em tempo de execução.Difere também pelo fato do garbage collector não desalocar memória que não será mais usada ao decorrer do programa,ele desaloca apenas espaços de memória para os quais não exista mais uma referência para eles.
+
 <h3>-Referência bibliográfica</h3>
 <p>https://www.ibm.com/developerworks/br/library/os-developers-know-rust/index.html<br>
 https://pt.wikipedia.org/wiki/Rust_(linguagem_de_programa%C3%A7%C3%A3o)</p>
+https://doc.rust-lang.org/1.9.0/book/lifetimes.html
+https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)
